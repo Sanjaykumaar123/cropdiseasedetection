@@ -1,0 +1,11 @@
+flask
+flask-cors
+flask-sqlalchemy
+flask-jwt-extended
+flask-bcrypt
+torch
+torchvision
+numpy
+pillow
+matplotlib
+python-dotenv

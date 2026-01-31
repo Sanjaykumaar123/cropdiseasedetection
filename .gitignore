@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+backend/.env
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Dataset and Models
+dataset/
+# Keep the model if it's not too huge, but usually we ignore large artifacts. 
+# User asked to push the project, they might expect the model. 
+# GitHub limit is 100MB. plant_disease_model.pth might be small (MobileNetV2 is ~14MB).
+# So I will NOT ignore the model folder for now, but I will check its size.
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
