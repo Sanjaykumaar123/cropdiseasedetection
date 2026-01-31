@@ -9,9 +9,9 @@ from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
 import uuid
 
-from config import Config
-from models import db, User, Prediction
-from ml_utils import predictor
+from .config import Config
+from .models import db, User, Prediction
+from .ml_utils import predictor
 
 app = Flask(__name__)
 app.config.from_object(Config)
