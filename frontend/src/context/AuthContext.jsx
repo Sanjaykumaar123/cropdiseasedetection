@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const savedUser = localStorage.getItem("user");
-    
+
     if (token && savedUser) {
       setUser(JSON.parse(savedUser));
       // Optionally verify token with backend here
@@ -22,31 +22,31 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/login", { email, password });
-      
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password });
+
       const { access_token, user } = res.data;
-      
+
       localStorage.setItem("token", access_token);
       localStorage.setItem("user", JSON.stringify(user));
-      
+
       setUser(user);
       return { success: true };
     } catch (error) {
-      return { 
-        success: false, 
-        message: error.response?.data?.message || "Login failed" 
+      return {
+        success: false,
+        message: error.response?.data?.message || "Login failed"
       };
     }
   };
 
   const register = async (name, email, password) => {
     try {
-      await axios.post("http://localhost:5000/api/register", { name, email, password });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, { name, email, password });
       return { success: true };
     } catch (error) {
-      return { 
-        success: false, 
-        message: error.response?.data?.message || "Registration failed" 
+      return {
+        success: false,
+        message: error.response?.data?.message || "Registration failed"
       };
     }
   };

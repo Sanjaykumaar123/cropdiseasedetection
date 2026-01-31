@@ -12,7 +12,7 @@ const History = () => {
 
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/api/history/${id}`, {
+            await axios.delete(`${import.meta.env.VITE_API_URL}/api/history/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setHistory(history.filter(item => item.id !== id));
@@ -26,7 +26,7 @@ const History = () => {
         const fetchHistory = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.get("http://localhost:5000/api/history", {
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/history`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setHistory(res.data);
@@ -71,7 +71,7 @@ const History = () => {
                                     </td>
                                     <td style={{ padding: '15px' }}>
                                         <img
-                                            src={`http://localhost:5000/uploads/${item.image_path}`}
+                                            src={`${import.meta.env.VITE_API_URL}/uploads/${item.image_path}`}
                                             alt="Thumbnail"
                                             style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '8px' }}
                                         />
