@@ -5,7 +5,10 @@ __pycache__/
 .venv/
 venv/
 env/
-backend/.env
+# Environment variables
+.env
+.env.local
+.env.*.local
 
 # Node
 node_modules/
