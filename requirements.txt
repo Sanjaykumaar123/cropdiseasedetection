@@ -3,9 +3,13 @@ flask-cors
 flask-sqlalchemy
 flask-jwt-extended
 flask-bcrypt
-torch
-torchvision
 numpy
 pillow
 matplotlib
 python-dotenv
+gunicorn
+psycopg2-binary
+# Use torch-cpu to save space on Render
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
